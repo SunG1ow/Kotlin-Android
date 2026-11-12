@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.bookmarket.mypage.MyPageActivity
 import com.google.android.material.navigation.NavigationView
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -68,7 +69,9 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun onMyPageClick(view: View?){
-        Toast.makeText(getApplicationContext(),"나의페이지 버튼을 클릭하였습니다",Toast.LENGTH_LONG).show()
+        // Toast.makeText(getApplicationContext(),"나의페이지 버튼을 클릭하였습니다",Toast.LENGTH_LONG).show()
+        val intent = Intent(this, MyPageActivity::class.java)
+        startActivity(intent)
     }
 
     fun onMarketInfoClick(view: View?){
