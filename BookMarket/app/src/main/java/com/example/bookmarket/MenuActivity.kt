@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
@@ -86,7 +89,25 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (item.itemId) {
             R.id.menu01 -> {
-                Toast.makeText(this, " 메뉴2 : " + item.title, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, " 메뉴2 : " + item.title, Toast.LENGTH_SHORT).show()
+                val builder = AlertDialog.Builder(this)
+
+                val dialogView = layoutInflater.inflate(R.layout.dialog_login, null)
+
+                builder.setView(dialogView)
+
+                val  dialog = builder.show()
+
+                val loginBtn : Button = dialogView.findViewById(R.id.loginBtn)
+
+                loginBtn.setOnClickListener {
+
+                    val tvID: TextView = dialogView.findViewById(R.id.userID)
+                    val tvPW: TextView = dialogView.findViewById(R.id.userPW)
+                    dialog.dismiss()
+                    Toast.makeText(this, "아이다: "+ tvID.text +" 비밀번호: " + tvPW.text, Toast.LENGTH_LONG).show()
+
+                }
 
             }
             R.id.menu03 -> {
